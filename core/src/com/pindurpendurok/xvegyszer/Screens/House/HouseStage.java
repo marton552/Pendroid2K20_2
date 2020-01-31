@@ -40,7 +40,6 @@ public class HouseStage extends SimpleWorldStage {
 
         t = new Tolvaj(game,world,this);
         t.setSize(100,100);
-
         t.Move(3);
         addActor(t);
         for (int i = 0; i < RandomGomb.x.length; i++) {
