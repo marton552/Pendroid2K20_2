@@ -28,6 +28,7 @@ public class HouseStage extends SimpleWorldStage {
             list.addTexture(texturak[i]);
         }
     }
+
     static public Tolvaj t;
     static public int hanyadik;
     static public List<RandomGomb> g = new ArrayList<>();
@@ -41,7 +42,7 @@ public class HouseStage extends SimpleWorldStage {
 
         t = new Tolvaj(game,world,this);
         t.setSize(170,170);
-        t.Move(3);
+        t.Move(t.pos);
         addActor(t);
         System.out.println(RandomGomb.y[0]);
         Ajtok();
