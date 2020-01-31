@@ -5,6 +5,10 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.pindurpendurok.xvegyszer.Screens.Actors.RandomGomb;
 import com.pindurpendurok.xvegyszer.Screens.Actors.Tolvaj;
+import com.pindurpendurok.xvegyszer.Screens.Circle.CircleScreen;
+import com.pindurpendurok.xvegyszer.Screens.Draw.DrawScreen;
+import com.pindurpendurok.xvegyszer.Screens.ProfDoor.ProfDoorScreen;
+import com.pindurpendurok.xvegyszer.SimpleLoadingStage;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -68,6 +72,10 @@ public class HouseStage extends SimpleWorldStage {
                             public void onStop(Timer sender) {
                                 super.onStop(sender);
                                 Ajtok();
+                                if(a == 1) {game.setScreenWithPreloadAssets(ProfDoorScreen.class,new SimpleLoadingStage(game));}
+                                if(a == 2) {game.setScreenWithPreloadAssets(CircleScreen.class,new SimpleLoadingStage(game));}
+                                if(a == 3) {game.setScreenWithPreloadAssets(DrawScreen.class,new SimpleLoadingStage(game));}
+                                //if(a == 0) {game.setScreenWithPreloadAssets(ProfDoorScreen.class,new SimpleLoadingStage(game));}
                             }
                         }));
                     }
