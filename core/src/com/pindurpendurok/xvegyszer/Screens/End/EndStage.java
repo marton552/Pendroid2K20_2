@@ -16,7 +16,7 @@ import hu.csanyzeg.master.MyBaseClasses.Scene2D.ResponseViewport;
 
 public class EndStage extends MyStage {
 
-    public static final String BG = "Screens/End_Screen_Wasted.png";
+    public static final String BG = "Screens/End_End_Screen.png";
 
     public static final String LOSESOUND = "Tutorial/sound9.ogg";
 

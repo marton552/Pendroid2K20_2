@@ -18,7 +18,7 @@ import hu.csanyzeg.master.MyBaseClasses.Scene2D.ResponseViewport;
 
 public class FinishStage extends MyStage {
 
-    public static final String BG = "Screens/End_Screen_Yeye.png";
+    public static final String BG = "Screens/End_Screen_Wasted.png";
     public static final String WINSOUND = "Tutorail/sound10.ogg";
 
     public static AssetList list = new AssetList();

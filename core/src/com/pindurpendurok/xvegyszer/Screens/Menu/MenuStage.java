@@ -31,7 +31,7 @@ public class MenuStage extends MyStage {
 
 
     public static String[] sounds = {"Tutorial/sound1.ogg", "Tutorial/sound2.ogg", "Tutorial/sound3.ogg", "Tutorial/sound4.ogg", "Tutorial/sound5.ogg", "Tutorial/sound6.ogg", "Tutorial/sound7.ogg", "Tutorial/sound8.ogg"};
-    public static String[] images = {"Tutorial/tutorial1.png", "Tutorial/tutorial2.png", "Tutorial/tutorial3.png", "Tutorial/tutorial4.png", "Tutorial/tutorial5.png", "Tutorial/tutorial6.png", "Tutorial/tutorial7.png", "Tutorial/tutorial8.png"};
+    public static String[] images = {"Tutorial/tutorial1.png", "Tutorial/tutorial2.png", "Tutorial/tutorial3.png","Tutorial/tutorial8.png", "Tutorial/tutorial5.png", "Tutorial/tutorial6.png","Tutorial/tutorial4.png","Tutorial/tutorial7.png"};
 
 
     public static AssetList list = new AssetList();
