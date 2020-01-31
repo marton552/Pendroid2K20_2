@@ -24,8 +24,11 @@ public class Huzas {
     SimpleWorldStage gs;
     public OneSpriteStaticActor kocka;
     public static int check = 5;
+    public static int mennyi = 0;
 
     public Huzas(MyGame game, SimpleWorldStage gs2){
+        check = 5;
+        elsokattint = true;
         gs = gs2;
         kocka = new OneSpriteStaticActor(game,LABDA);
         kocka.setPosition(0,0);
