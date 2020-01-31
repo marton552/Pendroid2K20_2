@@ -15,7 +15,7 @@ import hu.csanyzeg.master.MyBaseClasses.Scene2D.ResponseViewport;
 
 public class EndStage extends MyStage {
 
-    public static final String BG = "";
+    public static final String BG = "Screens/End_Screen_Wasted.png";
 
     public static AssetList list = new AssetList();
     static {
