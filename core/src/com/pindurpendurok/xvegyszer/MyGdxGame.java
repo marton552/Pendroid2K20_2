@@ -20,8 +20,8 @@ public class MyGdxGame extends MyGame {
     }
 
     public static String getPassPart(int part) {
-        if(part == 1) return PASS.substring(0, 2);
-        else return PASS.substring(3, 5);
+        if(part == 1) return PASS.substring(0, 3);
+        else return PASS.substring(3, 6);
     }
 
     public MyGdxGame(boolean debug) {
