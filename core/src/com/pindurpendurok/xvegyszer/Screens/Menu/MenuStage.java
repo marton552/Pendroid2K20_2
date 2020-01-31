@@ -12,6 +12,7 @@ import com.pindurpendurok.xvegyszer.Screens.About.AboutScreen;
 import com.pindurpendurok.xvegyszer.Screens.Actors.Tolvaj;
 import com.pindurpendurok.xvegyszer.Screens.End.EndScreen;
 import com.pindurpendurok.xvegyszer.Screens.Entrance.EntranceScreen;
+import com.pindurpendurok.xvegyszer.SimpleLoadingStage;
 
 import java.security.AlgorithmConstraints;
 
@@ -24,10 +25,12 @@ import hu.csanyzeg.master.MyBaseClasses.Scene2D.ResponseViewport;
 public class MenuStage extends MyStage {
 
     public static final String WBG = "ui_textures/black.png";
+    public static final String BG = "Screens/Menu_Screen.png";
 
     public static AssetList list = new AssetList();
     static {
         list.addTexture(WBG);
+        list.addTexture(BG);
     }
 
     SimpleButton playBtn;
@@ -46,11 +49,15 @@ public class MenuStage extends MyStage {
         super(new ResponseViewport(720), game);
         setCameraResetToLeftBottomOfScreen();
 
+        OneSpriteStaticActor bg = new OneSpriteStaticActor(game, BG);
+        bg.setSize(getViewport().getWorldWidth(), getViewport().getWorldHeight());
+        addActor(bg);
+
         Tolvaj.pos = 0;
 
         playBtn = new SimpleButton(game, "Quit");
         playBtn.setWidth(getViewport().getWorldWidth() - 100);
-        playBtn.setPosition(getViewport().getWorldWidth() / 2 - playBtn.getWidth() / 2, getViewport().getWorldHeight() / 2 - playBtn.getHeight());
+        playBtn.setPosition(getViewport().getWorldWidth() / 2 - playBtn.getWidth() / 2, getViewport().getWorldHeight() / 2 + 80);
 
         playBtn.addListener(new ClickListener() {
             @Override
@@ -82,10 +89,10 @@ public class MenuStage extends MyStage {
         azthitted = new SimpleLabel(game, "Azt hitted mi?");
         azthitted.setAlignment(Align.center);
         azthitted.setVisible(false);
-        azthitted.setPosition(getViewport().getWorldWidth() / 2 - azthitted.getWidth() / 2, getViewport().getWorldHeight() / 2 + 50);
+        azthitted.setPosition(getViewport().getWorldWidth() / 2 - azthitted.getWidth() / 2, getViewport().getWorldHeight() / 2 + 160);
         addActor(azthitted);
 
-        aboutBtn = new SimpleButton(game, "Play");
+        aboutBtn = new SimpleButton(game, "About");
         aboutBtn.setWidth(getViewport().getWorldWidth() - 100);
         aboutBtn.setPosition(getViewport().getWorldWidth() / 2 - aboutBtn.getWidth() / 2, playBtn.getY());
         aboutBtn.setVisible(false);
@@ -94,12 +101,12 @@ public class MenuStage extends MyStage {
             public void clicked(InputEvent event, float x, float y) {
                 super.clicked(event, x, y);
                 MyGdxGame.PASS = MyGdxGame.newPass();
-                game.setScreen(new EntranceScreen(game));
+                game.setScreenWithPreloadAssets(EntranceScreen.class, new SimpleLoadingStage(game));
             }
         });
         addActor(aboutBtn);
 
-        realAboutBtn = new SimpleButton(game, "About");
+        realAboutBtn = new SimpleButton(game, "Az igazi About");
         realAboutBtn.setWidth(getViewport().getWorldWidth() - 100);
         realAboutBtn.setPosition(getViewport().getWorldWidth() / 2 - realAboutBtn.getWidth() / 2, aboutBtn.getY() - realAboutBtn.getHeight() - 10);
         realAboutBtn.setVisible(false);
@@ -107,7 +114,7 @@ public class MenuStage extends MyStage {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 super.clicked(event, x, y);
-                game.setScreen(new AboutScreen(game));
+                game.setScreenWithPreloadAssets(AboutScreen.class, new SimpleLoadingStage(game));
             }
         });
         addActor(realAboutBtn);

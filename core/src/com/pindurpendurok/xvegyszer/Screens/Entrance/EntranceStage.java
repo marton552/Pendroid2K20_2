@@ -44,6 +44,9 @@ public class EntranceStage extends MyStage {
     public static final String WBG = "ui_textures/black.png";
 
 
+    public static String[] brokenParts = new String[]{"Textures/Door_Piece1.png", "Textures/Door_Piece2.png", "Textures/Door_Piece3.png"};
+
+
     public static AssetList list = new AssetList();
     static{
         list.addTexture(BG);
@@ -52,6 +55,7 @@ public class EntranceStage extends MyStage {
         list.addTexture(XRAY);
         list.addTexture(HOLE);
         for(int i = 0; i < brokeArray.length; i++) list.addTexture(brokeArray[i]);
+        for(int i = 0; i < brokenParts.length; i++) list.addTexture(brokenParts[i]);
 
         list.addTexture(WBG);
         list.addTexture(BROKEN);
@@ -202,12 +206,30 @@ public class EntranceStage extends MyStage {
     public void holePunch(float x, float y) {
         if(xray) return;
 
-        OneSpriteStaticActor spot = new OneSpriteStaticActor(game, brokeArray[MathUtils.random(0, brokeArray.length-1)]);
+        final OneSpriteStaticActor spot = new OneSpriteStaticActor(game, brokeArray[MathUtils.random(0, brokeArray.length-1)]);
         spot.setSize(spot.getWidth() / 2, spot.getHeight() / 2);
         spot.setPosition(x - spot.getWidth() / 2 + 20, y - spot.getHeight() / 2);
         addActor(spot, 100);
 
         brokeIn.add(spot);
+
+        addActor(new OneSpriteStaticActor(game, brokenParts[MathUtils.random(0, brokenParts.length - 1)]) {
+            @Override
+            public void init() {
+                super.init();
+
+                setSize(getWidth() / 2, getHeight() / 2);
+                setPosition(spot.getX(), spot.getY());
+            }
+
+            @Override
+            public void act(float delta) {
+                super.act(delta);
+
+                setY(getY() - 18);
+                if(getY() + getHeight() < 0) remove();
+            }
+        });
 
         SCORE--;
 
