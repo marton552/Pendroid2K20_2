@@ -7,6 +7,7 @@ import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.pindurpendurok.xvegyszer.Elements.SimpleButton;
 import com.pindurpendurok.xvegyszer.Elements.SimpleLabel;
+import com.pindurpendurok.xvegyszer.MyGdxGame;
 import com.pindurpendurok.xvegyszer.Screens.About.AboutScreen;
 import com.pindurpendurok.xvegyszer.Screens.End.EndScreen;
 import com.pindurpendurok.xvegyszer.Screens.Entrance.EntranceScreen;
@@ -89,6 +90,7 @@ public class MenuStage extends MyStage {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 super.clicked(event, x, y);
+                MyGdxGame.PASS = MyGdxGame.newPass();
                 game.setScreen(new EntranceScreen(game));
             }
         });
