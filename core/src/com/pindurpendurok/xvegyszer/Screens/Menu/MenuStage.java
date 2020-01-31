@@ -12,12 +12,14 @@ import com.pindurpendurok.xvegyszer.Screens.About.AboutScreen;
 import com.pindurpendurok.xvegyszer.Screens.Actors.Tolvaj;
 import com.pindurpendurok.xvegyszer.Screens.End.EndScreen;
 import com.pindurpendurok.xvegyszer.Screens.Entrance.EntranceScreen;
+import com.pindurpendurok.xvegyszer.Screens.StoryStage;
 import com.pindurpendurok.xvegyszer.SimpleLoadingStage;
 
 import java.security.AlgorithmConstraints;
 
 import hu.csanyzeg.master.MyBaseClasses.Assets.AssetList;
 import hu.csanyzeg.master.MyBaseClasses.Game.MyGame;
+import hu.csanyzeg.master.MyBaseClasses.Scene2D.MyScreen;
 import hu.csanyzeg.master.MyBaseClasses.Scene2D.MyStage;
 import hu.csanyzeg.master.MyBaseClasses.Scene2D.OneSpriteStaticActor;
 import hu.csanyzeg.master.MyBaseClasses.Scene2D.ResponseViewport;
@@ -114,7 +116,17 @@ public class MenuStage extends MyStage {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 super.clicked(event, x, y);
-                game.setScreenWithPreloadAssets(AboutScreen.class, new SimpleLoadingStage(game));
+                //game.setScreenWithPreloadAssets(AboutScreen.class, new SimpleLoadingStage(game));
+
+                ((MyScreen)getGame().getScreen()).addStage(new StoryStage(game, new String[]{}, new String[]{}) {
+                    @Override
+                    public void storyEnded(StoryStage sender) {
+                        super.storyEnded(sender);
+                        ((MyScreen)getGame().getScreen()).removeStage(sender);
+
+                    }
+                }, 10, true);
+
             }
         });
         addActor(realAboutBtn);
