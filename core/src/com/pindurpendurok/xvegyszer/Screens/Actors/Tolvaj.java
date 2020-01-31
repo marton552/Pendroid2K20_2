@@ -113,12 +113,12 @@ public class Tolvaj extends OneSpriteStaticActor {
                     @Override
                     public void onStop(Timer sender) {
                         super.onStop(sender);
-                        item.body.moveToFixTime(0,1280-RandomGomb.y[2],1f, PositionRule.Center);
-                        addTimer(new TickTimer(0.4f, false, new TickTimerListener() {
+                        item.body.moveToFixTime(RandomGomb.x[0],1280-RandomGomb.y[pozició]*1.73f,1f, PositionRule.Center);
+                        addTimer(new TickTimer(1f, false, new TickTimerListener() {
                             @Override
                             public void onStop(Timer sender) {
                                 super.onStop(sender);
-                                item.body.moveToFixTime(RandomGomb.x[pozició],1280-RandomGomb.y[pozició],0.4f, PositionRule.Center);
+                                item.body.moveToFixTime(RandomGomb.x[pozició],1280-RandomGomb.y[pozició],0.6f, PositionRule.Center);
                             }
                         }));
                     }
