@@ -19,7 +19,7 @@ public class Tolvaj extends OneSpriteStaticActor {
     static final String[] texturak = new String[]{"Textures/Thief_png.png"};
 
     private SimpleWorldHelper item;
-    public static int pos;
+    public static int pos = 0;
     public static int fentrol;
 
     static {

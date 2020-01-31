@@ -6,7 +6,10 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.Align;
 import com.pindurpendurok.xvegyszer.Elements.SimpleButton;
 import com.pindurpendurok.xvegyszer.Elements.SimpleLabel;
+import com.pindurpendurok.xvegyszer.Screens.Actors.Tolvaj;
 import com.pindurpendurok.xvegyszer.Screens.End.EndScreen;
+import com.pindurpendurok.xvegyszer.Screens.House.HouseScreen;
+import com.pindurpendurok.xvegyszer.SimpleLoadingStage;
 
 import java.security.AlgorithmConstraints;
 import java.util.ArrayList;
@@ -86,6 +89,8 @@ public class EntranceStage extends MyStage {
                 super.clicked(event, x, y);
 
                 System.out.println("BEMEGY A HÁZBAAAA");
+                Tolvaj.pos = 0;
+                game.setScreenWithPreloadAssets(HouseScreen.class, new SimpleLoadingStage(game));
             }
         });
         addActor(next);

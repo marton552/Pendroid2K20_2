@@ -6,7 +6,9 @@ import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.pindurpendurok.xvegyszer.Elements.SimpleButton;
 import com.pindurpendurok.xvegyszer.Elements.SimpleLabel;
+import com.pindurpendurok.xvegyszer.Screens.Actors.Tolvaj;
 import com.pindurpendurok.xvegyszer.Screens.End.EndScreen;
+import com.pindurpendurok.xvegyszer.Screens.House.HouseScreen;
 
 import java.util.ArrayList;
 
@@ -20,6 +22,8 @@ public class ProfDoorStage extends MyStage {
 
     public static final String BG = "Textures/Room1_Lab.png";
     public static final String WBG = "ui_textures/black.png";
+
+    //Terminal_Background.png
 
 
 
@@ -37,6 +41,7 @@ public class ProfDoorStage extends MyStage {
     SimpleButton endBtn;
 
     SimpleButton goIn;
+    SimpleButton back;
 
     boolean v = false;
 
@@ -48,7 +53,6 @@ public class ProfDoorStage extends MyStage {
         bg.setSize(getViewport().getWorldWidth(), getViewport().getWorldHeight());
         addActor(bg);
 
-
         c = new CodeConsole(game) {
             @Override
             public void correctCode() {
@@ -58,6 +62,7 @@ public class ProfDoorStage extends MyStage {
 
                 goIn.setVisible(true);
                 v = true;
+                c.setVisible(false);
 
             }
 
@@ -68,6 +73,7 @@ public class ProfDoorStage extends MyStage {
                 endBg.setVisible(true);
                 endLabel.setVisible(true);
                 endBtn.setVisible(true);
+                c.setVisible(false);
             }
         };
 
@@ -93,7 +99,7 @@ public class ProfDoorStage extends MyStage {
         goIn = new SimpleButton(game, "Be a laborba");
         goIn.setVisible(false);
         goIn.setWidth(getViewport().getWorldWidth() - 100);
-        goIn.setPosition(getViewport().getWorldWidth() / 2 - goIn.getWidth() / 2 - 50, 10);
+        goIn.setPosition(getViewport().getWorldWidth() / 2 - goIn.getWidth() / 2 , goIn.getHeight() + 20);
         goIn.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -103,6 +109,19 @@ public class ProfDoorStage extends MyStage {
             }
         });
         addActor(goIn);
+
+
+        back = new SimpleButton(game, "Vissza");
+        back.setPosition(getViewport().getWorldWidth() / 2 - back.getWidth() / 2, 10);
+        back.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                super.clicked(event, x, y);
+                Tolvaj.pos = 1;
+                game.setScreen(new HouseScreen(game));
+            }
+        });
+        addActor(back);
 
         endBg = new OneSpriteStaticActor(game, WBG);
         endBg.setSize(getViewport().getWorldWidth(), getViewport().getWorldHeight());
