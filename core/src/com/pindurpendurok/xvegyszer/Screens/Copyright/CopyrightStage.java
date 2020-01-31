@@ -1,8 +1,8 @@
 package com.pindurpendurok.xvegyszer.Screens.Copyright;
 
 import com.badlogic.gdx.utils.viewport.Viewport;
+import com.pindurpendurok.xvegyszer.Screens.Menu.MenuScreen;
 
-import hu.csanyzeg.master.Demos.Menu.MenuScreen;
 import hu.csanyzeg.master.MyBaseClasses.Assets.AssetList;
 import hu.csanyzeg.master.MyBaseClasses.Game.MyGame;
 import hu.csanyzeg.master.MyBaseClasses.Scene2D.MyStage;
@@ -36,5 +36,6 @@ public class CopyrightStage extends MyStage {
                 game.setScreen(new MenuScreen(game));
             }
         }));
+
     }
 }

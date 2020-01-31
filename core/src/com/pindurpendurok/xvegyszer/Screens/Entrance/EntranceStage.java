@@ -26,7 +26,13 @@ public class EntranceStage extends MyStage {
     public static final String XRAY_M = "";
     public static final String XRAY = "Textures/Xray_GreenScene.png";
     public static final String HOLE = "";
-    public static final String BROKE = "";
+
+    public static final String BROKE1 = "Textures/Door_Broked1.png";
+    public static final String BROKE2 = "Textures/Door_Broked2.png";
+    public static final String BROKE3 = "Textures/Door_Broked3.png";
+
+    public static String[] brokeArray = new String[]{BROKE1, BROKE2, BROKE3};
+
 
     public static final String WBG = "ui_textures/black.png";
 
@@ -38,7 +44,7 @@ public class EntranceStage extends MyStage {
         list.addTexture(XRAY_M);
         list.addTexture(XRAY);
         list.addTexture(HOLE);
-        list.addTexture(BROKE);
+        for(int i = 0; i < brokeArray.length; i++) list.addTexture(brokeArray[i]);
 
         list.addTexture(WBG);
     }
@@ -164,7 +170,7 @@ public class EntranceStage extends MyStage {
             breakDoor();
         }
 
-        OneSpriteStaticActor spot = new OneSpriteStaticActor(game, BROKE);
+        OneSpriteStaticActor spot = new OneSpriteStaticActor(game, brokeArray[MathUtils.random(0, brokeArray.length-1)]);
         spot.setPosition(x, y);
         addActor(spot);
 

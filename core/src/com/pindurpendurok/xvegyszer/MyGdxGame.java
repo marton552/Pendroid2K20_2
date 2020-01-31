@@ -1,6 +1,8 @@
 package com.pindurpendurok.xvegyszer;
 
+import com.pindurpendurok.xvegyszer.Screens.Copyright.CopyrightScreen;
 import com.pindurpendurok.xvegyszer.Screens.Menu.MenuScreen;
+import com.pindurpendurok.xvegyszer.Screens.ProfDoor.ProfDoorScreen;
 
 import hu.csanyzeg.master.MyBaseClasses.Game.MyGame;
 
@@ -17,7 +19,7 @@ public class MyGdxGame extends MyGame {
     public void create() {
         super.create();
         setLoadingStage(new SimpleLoadingStage(this));
-        setScreen(new MenuScreen(this));
+        setScreen(new ProfDoorScreen(this));
 
     }
 }
