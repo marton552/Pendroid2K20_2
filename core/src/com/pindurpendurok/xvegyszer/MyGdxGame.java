@@ -1,5 +1,7 @@
 package com.pindurpendurok.xvegyszer;
 
+import com.badlogic.gdx.math.MathUtils;
+import com.pindurpendurok.xvegyszer.Screens.Draw.DrawScreen;
 import com.pindurpendurok.xvegyszer.Screens.Menu.MenuScreen;
 
 import hu.csanyzeg.master.MyBaseClasses.Game.MyGame;
