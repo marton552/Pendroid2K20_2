@@ -2,6 +2,7 @@ package com.pindurpendurok.xvegyszer.Screens.House;
 
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.badlogic.gdx.utils.viewport.Viewport;
 import com.pindurpendurok.xvegyszer.Screens.Actors.RandomGomb;
 import com.pindurpendurok.xvegyszer.Screens.Actors.Tolvaj;
 
@@ -30,9 +31,10 @@ public class HouseStage extends SimpleWorldStage {
     static public Tolvaj t;
     static public int hanyadik;
     static public List<RandomGomb> g = new ArrayList<>();
-
     public HouseStage(final MyGame game){
         super(new ResponseViewport(720f),game);
+        RandomGomb.Arany(getViewport().getWorldWidth(),getViewport().getWorldHeight());
+
         OneSpriteStaticActor background = new OneSpriteStaticActor(game,texturak[0]);
         background.setSize(getViewport().getWorldWidth(),getViewport().getWorldHeight());
         addActor(background);
@@ -41,6 +43,7 @@ public class HouseStage extends SimpleWorldStage {
         t.setSize(170,170);
         t.Move(3);
         addActor(t);
+        System.out.println(RandomGomb.y[0]);
         Ajtok();
     }
     public void Ajtok(){

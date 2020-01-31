@@ -14,6 +14,7 @@ import hu.csanyzeg.master.MyBaseClasses.SimpleWorld.SimpleWorldStage;
 public class RandomGomb extends OneSpriteStaticActor {
     static AssetList list = new AssetList();
     static final String[] texturak = new String[]{"Textures/Door_icon.png"};
+    static int fentrol = 1280;
     public static final int[] x = new int[]{330,330,650,130};
     public static final int[] y = new int[]{1180,110,340,660};
     //lent, fent, bal,jobb
@@ -32,6 +33,15 @@ public class RandomGomb extends OneSpriteStaticActor {
         setActorWorldHelper(item);
     }
     public void Mozgat(int x, int y){
-        item.body.moveToFixTime(x,1280-y,0, PositionRule.Center);
+        item.body.moveToFixTime(x,fentrol-y,0, PositionRule.Center);
+    }
+
+    static public void Arany(float x,float y){
+        fentrol = (int)y;
+        Tolvaj.fentrol = fentrol;
+        for (int i = 0; i < RandomGomb.x.length; i++) {
+            RandomGomb.y[i]=Math.round(RandomGomb.y[i]*(y/1280));
+            RandomGomb.x[i]=Math.round(RandomGomb.x[i]*(x/720));
+        }
     }
 }
