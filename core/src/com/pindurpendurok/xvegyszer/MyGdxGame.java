@@ -1,7 +1,6 @@
 package com.pindurpendurok.xvegyszer;
 
 import com.badlogic.gdx.math.MathUtils;
-import com.pindurpendurok.xvegyszer.Screens.House.HouseScreen;
 import com.pindurpendurok.xvegyszer.Screens.ProfDoor.ProfDoorScreen;
 
 import hu.csanyzeg.master.MyBaseClasses.Game.MyGame;
@@ -30,7 +29,7 @@ public class MyGdxGame extends MyGame {
     public void create() {
         super.create();
         setLoadingStage(new SimpleLoadingStage(this));
-        setScreen(new HouseScreen(this));
+        setScreen(new ProfDoorScreen(this));
 
     }
 }
