@@ -21,10 +21,10 @@ import hu.csanyzeg.master.MyBaseClasses.UI.MyButton;
 
 public class EntranceStage extends MyStage {
 
-    public static final String BG = "";
-    public static final String DOOR = "";
+    public static final String BG = "Textures/Room1_NoDoor.png";
+    public static final String DOOR = "Textures/Room1_Door.png";
     public static final String XRAY_M = "";
-    public static final String XRAY = "";
+    public static final String XRAY = "Textures/Xray_GreenScene.png";
     public static final String HOLE = "";
     public static final String BROKE = "";
 
@@ -109,9 +109,9 @@ public class EntranceStage extends MyStage {
         xrayActor.setSize(door.getWidth(), door.getHeight());
         xrayActor.setVisible(false);
         xrayActor.setZIndex(1000);
+        xrayActor.setAlpha(0.7f);
 
         xrayActor.setVisible(true);
-
 
         OneSpriteStaticActor xrayMach = new OneSpriteStaticActor(game, XRAY_M);
         xrayMach.setPosition(10, 10);
@@ -126,7 +126,7 @@ public class EntranceStage extends MyStage {
         addActor(xrayMach);
 
         endBg = new OneSpriteStaticActor(game, WBG);
-        endBg.setSize(getViewport().getScreenWidth(), getViewport().getScreenHeight());
+        endBg.setSize(getViewport().getWorldWidth(), getViewport().getWorldHeight());
         endBg.setVisible(false);
         addActor(endBg);
 
