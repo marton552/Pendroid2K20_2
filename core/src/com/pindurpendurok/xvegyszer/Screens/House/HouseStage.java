@@ -38,6 +38,7 @@ public class HouseStage extends SimpleWorldStage {
     static public List<RandomGomb> g = new ArrayList<>();
     public HouseStage(final MyGame game){
         super(new ResponseViewport(720f),game);
+
         RandomGomb.Arany(getViewport().getWorldWidth(),getViewport().getWorldHeight());
 
         OneSpriteStaticActor background = new OneSpriteStaticActor(game,texturak[0]);

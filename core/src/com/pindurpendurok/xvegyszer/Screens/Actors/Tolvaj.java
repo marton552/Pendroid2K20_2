@@ -21,7 +21,7 @@ public class Tolvaj extends OneSpriteStaticActor {
 
     private SimpleWorldHelper item;
     public static int pos = 3;
-    public static int fentrol;
+    public static int fentrol = 1094;
 
     static {
         for (int i = 0; i < texturak.length ; i++) {

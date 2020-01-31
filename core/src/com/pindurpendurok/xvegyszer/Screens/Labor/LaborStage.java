@@ -2,6 +2,7 @@ package com.pindurpendurok.xvegyszer.Screens.Labor;
 
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.pindurpendurok.xvegyszer.Screens.Actors.RandomGomb;
 import com.pindurpendurok.xvegyszer.Screens.Actors.Tolvaj;
 import com.pindurpendurok.xvegyszer.Screens.House.HouseStage;
 
@@ -25,6 +26,7 @@ public class LaborStage extends SimpleWorldStage {
     }
     public LaborStage(final MyGame game){
         super(new ResponseViewport(720f),game);
+        RandomGomb.Arany(getViewport().getWorldWidth(),getViewport().getWorldHeight());
 
         final OneSpriteStaticActor background = new OneSpriteStaticActor(game,texturak[0]);
         background.setSize(getViewport().getWorldWidth(),getViewport().getWorldHeight());
