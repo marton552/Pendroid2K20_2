@@ -9,6 +9,7 @@ import com.pindurpendurok.xvegyszer.Elements.SimpleButton;
 import com.pindurpendurok.xvegyszer.Elements.SimpleLabel;
 import com.pindurpendurok.xvegyszer.MyGdxGame;
 import com.pindurpendurok.xvegyszer.Screens.About.AboutScreen;
+import com.pindurpendurok.xvegyszer.Screens.Actors.Tolvaj;
 import com.pindurpendurok.xvegyszer.Screens.End.EndScreen;
 import com.pindurpendurok.xvegyszer.Screens.Entrance.EntranceScreen;
 
@@ -44,6 +45,8 @@ public class MenuStage extends MyStage {
     public MenuStage(final MyGame game) {
         super(new ResponseViewport(720), game);
         setCameraResetToLeftBottomOfScreen();
+
+        Tolvaj.pos = 0;
 
         playBtn = new SimpleButton(game, "Quit");
         playBtn.setWidth(getViewport().getWorldWidth() - 100);

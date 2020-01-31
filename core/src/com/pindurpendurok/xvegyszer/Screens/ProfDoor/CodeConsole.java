@@ -19,6 +19,7 @@ public class CodeConsole extends MyGroup {
     public static final String BTN = "Textures/codeBtn.png";
     public static final String DBG = "ui_textures/gray.png";
     public static final String FONT = "8-bit.ttf";
+    public static final String TERMINAL = "Textures/terminal.png";
 
 
     public static AssetList list = new AssetList();
@@ -26,6 +27,7 @@ public class CodeConsole extends MyGroup {
         list.addTexture(BTN);
         list.addTexture(DBG);
         list.addFont(FONT, 30);
+        list.addTexture(TERMINAL);
     }
 
 
@@ -40,6 +42,12 @@ public class CodeConsole extends MyGroup {
         float theX = 0;
         float theY = 0;
         setSize(320, 550);
+
+        OneSpriteStaticActor bg = new OneSpriteStaticActor(game, TERMINAL);
+        bg.setSize(getWidth() + 50, getHeight() + 50);
+        bg.setPosition(getWidth() / 2 - bg.getWidth() / 2, getHeight() / 2 - bg.getHeight() / 2);
+        addActor(bg);
+
 
         for(int i = 1; i <= 12; i++) {
 
@@ -106,7 +114,7 @@ public class CodeConsole extends MyGroup {
 
 
     public void pressedButton(String btn) {
-        System.out.println("PRESSED: "+btn);
+        System.out.println("PASS: "+MyGdxGame.PASS);
         if("C".compareTo(btn) == 0) {
             if(pass.length() > 0){
                 System.out.println("C pressed");
