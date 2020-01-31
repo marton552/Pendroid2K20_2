@@ -1,6 +1,8 @@
 package com.pindurpendurok.xvegyszer;
 
 import com.badlogic.gdx.math.MathUtils;
+import com.pindurpendurok.xvegyszer.Screens.Circle.CircleScreen;
+import com.pindurpendurok.xvegyszer.Screens.Draw.DrawScreen;
 import com.pindurpendurok.xvegyszer.Screens.Entrance.EntranceScreen;
 import com.pindurpendurok.xvegyszer.Screens.House.HouseScreen;
 import com.pindurpendurok.xvegyszer.Screens.Labor.LaborScreen;
