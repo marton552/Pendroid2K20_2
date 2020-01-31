@@ -14,23 +14,25 @@ import hu.csanyzeg.master.MyBaseClasses.SimpleWorld.SimpleWorldStage;
 public class RandomGomb extends OneSpriteStaticActor {
     static AssetList list = new AssetList();
     static final String[] texturak = new String[]{"test/red_move.png"};
+    public static final int[] x = new int[]{330,330,650,130};
+    public static final int[] y = new int[]{1180,110,340,660};
+    //lent, fent, bal,jobb
     private SimpleWorldHelper item;
-
-
+    public int pos;
     static {
         for (int i = 0; i < texturak.length ; i++) {
             list.addTexture(texturak[i]);
         }
     }
-    public RandomGomb(final MyGame game, final SimpleWorld world,SimpleWorldStage gs) {
+    public RandomGomb(final MyGame game, final SimpleWorld world,SimpleWorldStage gs, int pos) {
         super(game, texturak[0]);
+        this.pos = pos;
 
         item = new SimpleWorldHelper(world, this, ShapeType.Circle, SimpleBodyType.Sensor);
         item.body.setSize(255,255);
         setActorWorldHelper(item);
     }
-    public void Megy(int x, int y, float ido){
-        //item.setBodyPosition(x-item.getActorWidth()/2,1280-y);
-        item.body.moveToFixTime(x,1280-y,ido, PositionRule.Center);
+    public void Mozgat(int x, int y){
+        item.body.moveToFixTime(x,1280-y,0, PositionRule.Center);
     }
 }
