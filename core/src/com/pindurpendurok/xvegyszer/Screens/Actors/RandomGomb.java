@@ -13,7 +13,7 @@ import hu.csanyzeg.master.MyBaseClasses.SimpleWorld.SimpleWorldStage;
 
 public class RandomGomb extends OneSpriteStaticActor {
     static AssetList list = new AssetList();
-    static final String[] texturak = new String[]{"test/red_move.png"};
+    static final String[] texturak = new String[]{"Textures/Door_icon.png"};
     public static final int[] x = new int[]{330,330,650,130};
     public static final int[] y = new int[]{1180,110,340,660};
     //lent, fent, bal,jobb
@@ -29,7 +29,6 @@ public class RandomGomb extends OneSpriteStaticActor {
         this.pos = pos;
 
         item = new SimpleWorldHelper(world, this, ShapeType.Circle, SimpleBodyType.Sensor);
-        item.body.setSize(255,255);
         setActorWorldHelper(item);
     }
     public void Mozgat(int x, int y){
