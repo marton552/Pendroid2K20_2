@@ -29,10 +29,19 @@ public class MenuStage extends MyStage {
     public static final String WBG = "ui_textures/black.png";
     public static final String BG = "Screens/Menu_Screen.png";
 
+
+    public static String[] sounds = {"Tutorial/sound1.ogg", "Tutorial/sound2.ogg", "Tutorial/sound3.ogg", "Tutorial/sound4.ogg", "Tutorial/sound5.ogg", "Tutorial/sound6.ogg", "Tutorial/sound7.ogg", "Tutorial/sound8.ogg"};
+    public static String[] images = {"Tutorial/tutorial1.png", "Tutorial/tutorial2.png", "Tutorial/tutorial3.png", "Tutorial/tutorial4.png", "Tutorial/tutorial5.png", "Tutorial/tutorial6.png", "Tutorial/tutorial7.png", "Tutorial/tutorial8.png"};
+
+
     public static AssetList list = new AssetList();
     static {
         list.addTexture(WBG);
         list.addTexture(BG);
+
+        for(int i = 0; i < sounds.length; i++) list.addMusic(sounds[i]);
+        for(int i = 0; i < images.length; i++) list.addTexture(images[i]);
+
     }
 
     SimpleButton playBtn;
@@ -118,7 +127,7 @@ public class MenuStage extends MyStage {
                 super.clicked(event, x, y);
                 //game.setScreenWithPreloadAssets(AboutScreen.class, new SimpleLoadingStage(game));
 
-                ((MyScreen)getGame().getScreen()).addStage(new StoryStage(game, new String[]{}, new String[]{}) {
+                ((MyScreen)getGame().getScreen()).addStage(new StoryStage(game, images, sounds) {
                     @Override
                     public void storyEnded(StoryStage sender) {
                         super.storyEnded(sender);

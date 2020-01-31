@@ -1,5 +1,6 @@
 package com.pindurpendurok.xvegyszer.Screens.End;
 
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.viewport.Viewport;
@@ -17,13 +18,21 @@ public class EndStage extends MyStage {
 
     public static final String BG = "Screens/End_Screen_Wasted.png";
 
+    public static final String LOSESOUND = "Tutorial/sound9.ogg";
+
     public static AssetList list = new AssetList();
     static {
         list.addTexture(BG);
+        list.addMusic(LOSESOUND);
     }
 
     public EndStage(final MyGame game) {
         super(new ResponseViewport(720f), game);
+
+
+        Music m = game.getMyAssetManager().getMusic(LOSESOUND);
+        m.play();
+        m.setVolume(1);
 
         OneSpriteStaticActor bg = new OneSpriteStaticActor(game, BG);
         bg.setSize(getViewport().getWorldWidth(), getViewport().getWorldHeight());

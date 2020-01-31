@@ -1,5 +1,6 @@
 package com.pindurpendurok.xvegyszer.Screens.Finish;
 
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.Align;
@@ -18,14 +19,22 @@ import hu.csanyzeg.master.MyBaseClasses.Scene2D.ResponseViewport;
 public class FinishStage extends MyStage {
 
     public static final String BG = "Screens/End_Screen_Yeye.png";
+    public static final String WINSOUND = "Tutorail/sound10.ogg";
 
     public static AssetList list = new AssetList();
     static {
         list.addTexture(BG);
+        list.addTexture(WINSOUND);
+
     }
 
     public FinishStage(final MyGame game) {
         super(new ResponseViewport(720), game);
+
+
+        Music m = game.getMyAssetManager().getMusic(WINSOUND);
+        m.play();
+        m.setVolume(1);
 
         OneSpriteStaticActor bg = new OneSpriteStaticActor(game, BG);
         bg.setSize(getViewport().getWorldWidth(), getViewport().getWorldHeight());

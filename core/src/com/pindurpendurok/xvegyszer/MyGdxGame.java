@@ -2,6 +2,7 @@ package com.pindurpendurok.xvegyszer;
 
 import com.badlogic.gdx.math.MathUtils;
 import com.pindurpendurok.xvegyszer.Screens.Circle.CircleScreen;
+import com.pindurpendurok.xvegyszer.Screens.Copyright.CopyrightScreen;
 import com.pindurpendurok.xvegyszer.Screens.Draw.DrawScreen;
 import com.pindurpendurok.xvegyszer.Screens.Entrance.EntranceScreen;
 import com.pindurpendurok.xvegyszer.Screens.House.HouseScreen;
@@ -43,7 +44,7 @@ public class MyGdxGame extends MyGame {
     public void create() {
         super.create();
         setLoadingStage(new SimpleLoadingStage(this));
-        setScreen(new HouseScreen(this));
+        setScreen(new CopyrightScreen(this));
 
     }
 }
