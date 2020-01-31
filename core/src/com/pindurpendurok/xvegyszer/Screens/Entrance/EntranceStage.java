@@ -3,8 +3,12 @@ package com.pindurpendurok.xvegyszer.Screens.Entrance;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.badlogic.gdx.utils.Align;
 import com.pindurpendurok.xvegyszer.Elements.SimpleButton;
+import com.pindurpendurok.xvegyszer.Elements.SimpleLabel;
+import com.pindurpendurok.xvegyszer.Screens.End.EndScreen;
 
+import java.security.AlgorithmConstraints;
 import java.util.ArrayList;
 import java.util.SimpleTimeZone;
 
@@ -24,6 +28,8 @@ public class EntranceStage extends MyStage {
     public static final String HOLE = "";
     public static final String BROKE = "";
 
+    public static final String WBG = "ui_textures/black.png";
+
 
     public static AssetList list = new AssetList();
     static{
@@ -33,6 +39,8 @@ public class EntranceStage extends MyStage {
         list.addTexture(XRAY);
         list.addTexture(HOLE);
         list.addTexture(BROKE);
+
+        list.addTexture(WBG);
     }
 
     OneSpriteStaticActor door;
@@ -44,7 +52,12 @@ public class EntranceStage extends MyStage {
     boolean xray = false;
     OneSpriteStaticActor xrayActor;
 
-    public EntranceStage(MyGame game) {
+
+    SimpleLabel endLabel;
+    OneSpriteStaticActor endBg;
+    SimpleButton endBtn;
+
+    public EntranceStage(final MyGame game) {
         super(new ResponseViewport(720), game);
         setCameraResetToLeftBottomOfScreen();
 
@@ -58,7 +71,7 @@ public class EntranceStage extends MyStage {
             public void clicked(InputEvent event, float x, float y) {
                 super.clicked(event, x, y);
 
-                System.out.println("BEMEGY A HÁZAAAA");
+                System.out.println("BEMEGY A HÁZBAAAA");
             }
         });
         addActor(next);
@@ -112,6 +125,29 @@ public class EntranceStage extends MyStage {
         });
         addActor(xrayMach);
 
+        endBg = new OneSpriteStaticActor(game, WBG);
+        endBg.setSize(getViewport().getScreenWidth(), getViewport().getScreenHeight());
+        endBg.setVisible(false);
+        addActor(endBg);
+
+        endLabel = new SimpleLabel(game, "Ní-nó!\nMegszólalt a riasztó");
+        endLabel.setAlignment(Align.center);
+        endLabel.setPosition(getViewport().getWorldWidth() / 2 - endLabel.getWidth() / 2, getViewport().getWorldHeight() / 2 + 50);
+        endLabel.setVisible(false);
+        addActor(endLabel);
+
+        endBtn = new SimpleButton(game, "Az örsre");
+        endBtn.setVisible(false);
+        endBtn.setPosition(getViewport().getWorldWidth() / 2 - endBg.getWidth() / 2, getViewport().getWorldHeight() / 2 - endBg.getHeight() - 50);
+        endBtn.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                super.clicked(event, x, y);
+                game.setScreen(new EndScreen(game));
+            }
+        });
+
+        addActor(endBtn);
     }
 
     public void breakDoor() {
@@ -142,11 +178,12 @@ public class EntranceStage extends MyStage {
         for (int i = 0; i < breakInSpots.size(); i++) {
             breakInSpots.get(i).setAlpha(xray == true ? 1 : 0);
         }
-
     }
 
     public void soundAlarm(){
-
+        endBg.setVisible(true);
+        endLabel.setVisible(true);
+        endBtn.setVisible(true);
     }
 
     public void doorTapped(float x, float y) {

@@ -10,5 +10,7 @@ public class EndStage extends MyStage {
     public EndStage(MyGame game) {
         super(new ResponseViewport(720f), game);
 
+
+        //Írja ki hogy: "Mivel megszólalt a risztó ezért itt van 10 coin" (amit igazából nem kap meg)
     }
 }
