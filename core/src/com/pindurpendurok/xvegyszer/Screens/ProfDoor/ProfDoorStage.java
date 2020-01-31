@@ -9,6 +9,8 @@ import com.pindurpendurok.xvegyszer.Elements.SimpleLabel;
 import com.pindurpendurok.xvegyszer.Screens.Actors.Tolvaj;
 import com.pindurpendurok.xvegyszer.Screens.End.EndScreen;
 import com.pindurpendurok.xvegyszer.Screens.House.HouseScreen;
+import com.pindurpendurok.xvegyszer.Screens.Labor.LaborScreen;
+import com.pindurpendurok.xvegyszer.SimpleLoadingStage;
 
 import java.util.ArrayList;
 
@@ -104,7 +106,7 @@ public class ProfDoorStage extends MyStage {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 super.clicked(event, x, y);
-
+                game.setScreenWithPreloadAssets(LaborScreen.class, new SimpleLoadingStage(game));
 
             }
         });
