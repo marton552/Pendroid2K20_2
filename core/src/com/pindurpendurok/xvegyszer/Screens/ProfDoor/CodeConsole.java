@@ -39,6 +39,7 @@ public class CodeConsole extends MyGroup {
 
         float theX = 0;
         float theY = 0;
+        setSize(320, 550);
 
         for(int i = 1; i <= 12; i++) {
 
