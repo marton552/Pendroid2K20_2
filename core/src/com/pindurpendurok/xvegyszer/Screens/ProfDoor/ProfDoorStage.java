@@ -114,6 +114,7 @@ public class ProfDoorStage extends MyStage {
 
 
         back = new SimpleButton(game, "Vissza");
+        back.setWidth(getViewport().getWorldWidth() - 100);
         back.setPosition(getViewport().getWorldWidth() / 2 - back.getWidth() / 2, 10);
         back.addListener(new ClickListener() {
             @Override
