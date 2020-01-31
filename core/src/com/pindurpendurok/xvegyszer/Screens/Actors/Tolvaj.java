@@ -16,10 +16,11 @@ import hu.csanyzeg.master.MyBaseClasses.Timers.Timer;
 
 public class Tolvaj extends OneSpriteStaticActor {
     static AssetList list = new AssetList();
-    static final String[] texturak = new String[]{"test/blue_move.png"};
+    static final String[] texturak = new String[]{"Textures/Thief_png.png"};
 
     private SimpleWorldHelper item;
     public static int pos;
+    public static int fentrol;
 
     static {
         for (int i = 0; i < texturak.length ; i++) {
@@ -40,34 +41,33 @@ public class Tolvaj extends OneSpriteStaticActor {
             if(pozició == 1){
                 item.setBodyRotation(0);
                 item.setBodyOrigin(item.getActorWidth()/2,item.getActorHeight()/2);
-                item.body.moveToFixTime(RandomGomb.x[pozició],1280-RandomGomb.y[pozició],2f, PositionRule.Center);
+                item.body.moveToFixTime(RandomGomb.x[pozició],fentrol-RandomGomb.y[pozició],3f, PositionRule.Center);
             }
-                item.body.moveToFixTime(RandomGomb.x[pozició],1280-RandomGomb.y[pozició],2f, PositionRule.Center);
             if(pozició == 2){
                 item.setBodyRotation(0);
                 item.setBodyOrigin(item.getActorWidth()/2,item.getActorHeight()/2);
-                item.body.moveToFixTime(RandomGomb.x[0],1280-RandomGomb.y[pozició],1.5f, PositionRule.Center);
+                item.body.moveToFixTime(RandomGomb.x[0],fentrol-RandomGomb.y[pozició],1.5f, PositionRule.Center);
                 addTimer(new TickTimer(1.5f, false, new TickTimerListener() {
                     @Override
                     public void onStop(Timer sender) {
                         super.onStop(sender);
                         item.setBodyRotation(-90);
                         item.setBodyOrigin(item.getActorWidth()/2,item.getActorHeight()/2);
-                        item.body.moveToFixTime(RandomGomb.x[pozició],1280-RandomGomb.y[pozició],0.5f, PositionRule.Center);
+                        item.body.moveToFixTime(RandomGomb.x[pozició],fentrol-RandomGomb.y[pozició],1f, PositionRule.Center);
                     }
                 }));
             }
             if(pozició == 3){
                 item.setBodyRotation(0);
                 item.setBodyOrigin(item.getActorWidth()/2,item.getActorHeight()/2);
-                item.body.moveToFixTime(RandomGomb.x[0],1280-RandomGomb.y[pozició],1.5f, PositionRule.Center);
-                addTimer(new TickTimer(1.5f, false, new TickTimerListener() {
+                item.body.moveToFixTime(RandomGomb.x[0],fentrol-RandomGomb.y[pozició],1f, PositionRule.Center);
+                addTimer(new TickTimer(1f, false, new TickTimerListener() {
                     @Override
                     public void onStop(Timer sender) {
                         super.onStop(sender);
                         item.setBodyRotation(90);
                         item.setBodyOrigin(item.getActorWidth()/2,item.getActorHeight()/2);
-                        item.body.moveToFixTime(RandomGomb.x[pozició],1280-RandomGomb.y[pozició],0.5f, PositionRule.Center);
+                        item.body.moveToFixTime(RandomGomb.x[pozició],fentrol-RandomGomb.y[pozició],0.5f, PositionRule.Center);
                     }
                 }));
             }
@@ -76,64 +76,63 @@ public class Tolvaj extends OneSpriteStaticActor {
             if(pozició == 0){
                 item.setBodyRotation(180);
                 item.setBodyOrigin(item.getActorWidth()/2,item.getActorHeight()/2);
-                item.body.moveToFixTime(RandomGomb.x[pozició],1280-RandomGomb.y[pozició],2f, PositionRule.Center);
+                item.body.moveToFixTime(RandomGomb.x[pozició],fentrol-RandomGomb.y[pozició],3f, PositionRule.Center);
             }
 
             if(pozició == 2){
                 item.setBodyRotation(180);
                 item.setBodyOrigin(item.getActorWidth()/2,item.getActorHeight()/2);
-                item.body.moveToFixTime(RandomGomb.x[0],1280-RandomGomb.y[pozició],1f, PositionRule.Center);
-                addTimer(new TickTimer(1f, false, new TickTimerListener() {
+                item.body.moveToFixTime(RandomGomb.x[0],fentrol-RandomGomb.y[pozició],0.5f, PositionRule.Center);
+                addTimer(new TickTimer(0.5f, false, new TickTimerListener() {
                     @Override
                     public void onStop(Timer sender) {
                         super.onStop(sender);
                         item.setBodyRotation(-90);
                         item.setBodyOrigin(item.getActorWidth()/2,item.getActorHeight()/2);
-                        item.body.moveToFixTime(RandomGomb.x[pozició],1280-RandomGomb.y[pozició],1f, PositionRule.Center);
+                        item.body.moveToFixTime(RandomGomb.x[pozició],fentrol-RandomGomb.y[pozició],0.5f, PositionRule.Center);
                     }
                 }));
             }
             if(pozició == 3){
                 item.setBodyRotation(180);
-                item.body.moveToFixTime(RandomGomb.x[0],1280-RandomGomb.y[pozició],1.5f, PositionRule.Center);
+                item.body.moveToFixTime(RandomGomb.x[0],fentrol-RandomGomb.y[pozició],1.5f, PositionRule.Center);
                 addTimer(new TickTimer(1.5f, false, new TickTimerListener() {
                     @Override
                     public void onStop(Timer sender) {
                         super.onStop(sender);
                         item.setBodyRotation(90);
                         item.setBodyOrigin(item.getActorWidth()/2,item.getActorHeight()/2);
-                        item.body.moveToFixTime(RandomGomb.x[pozició],1280-RandomGomb.y[pozició],0.5f, PositionRule.Center);
+                        item.body.moveToFixTime(RandomGomb.x[pozició],fentrol-RandomGomb.y[pozició],0.5f, PositionRule.Center);
                     }
                 }));
-
             }
         }
         if(this.pos == 2){
             if(pozició == 0){
                 item.setBodyRotation(90);
                 item.setBodyOrigin(item.getActorWidth()/2,item.getActorHeight()/2);
-                item.body.moveToFixTime(RandomGomb.x[pozició],1280-RandomGomb.y[2],0.5f, PositionRule.Center);
-                addTimer(new TickTimer(0.5f, false, new TickTimerListener() {
+                item.body.moveToFixTime(RandomGomb.x[pozició],fentrol-RandomGomb.y[2],0.7f, PositionRule.Center);
+                addTimer(new TickTimer(0.7f, false, new TickTimerListener() {
                     @Override
                     public void onStop(Timer sender) {
                         super.onStop(sender);
                         item.setBodyRotation(180);
                         item.setBodyOrigin(item.getActorWidth()/2,item.getActorHeight()/2);
-                        item.body.moveToFixTime(RandomGomb.x[pozició],1280-RandomGomb.y[pozició],1.5f, PositionRule.Center);
+                        item.body.moveToFixTime(RandomGomb.x[pozició],fentrol-RandomGomb.y[pozició],1.8f, PositionRule.Center);
                     }
                 }));
             }
             if(pozició == 1){
                 item.setBodyRotation(90);
                 item.setBodyOrigin(item.getActorWidth()/2,item.getActorHeight()/2);
-                item.body.moveToFixTime(RandomGomb.x[1],1280-RandomGomb.y[2],1f, PositionRule.Center);
-                addTimer(new TickTimer(1f, false, new TickTimerListener() {
+                item.body.moveToFixTime(RandomGomb.x[1],fentrol-RandomGomb.y[2],0.5f, PositionRule.Center);
+                addTimer(new TickTimer(0.5f, false, new TickTimerListener() {
                     @Override
                     public void onStop(Timer sender) {
                         super.onStop(sender);
                         item.setBodyRotation(0);
                         item.setBodyOrigin(item.getActorWidth()/2,item.getActorHeight()/2);
-                        item.body.moveToFixTime(RandomGomb.x[pozició],1280-RandomGomb.y[pozició],1f, PositionRule.Center);
+                        item.body.moveToFixTime(RandomGomb.x[pozició],fentrol-RandomGomb.y[pozició],0.5f, PositionRule.Center);
                     }
                 }));
             }
@@ -142,7 +141,7 @@ public class Tolvaj extends OneSpriteStaticActor {
             if(pozició == 3){
                 item.setBodyRotation(90);
                 item.setBodyOrigin(item.getActorWidth()/2,item.getActorHeight()/2);
-                item.body.moveToFixTime(RandomGomb.x[0],1280-RandomGomb.y[2],0.6f, PositionRule.Center);
+                item.body.moveToFixTime(RandomGomb.x[0],fentrol-RandomGomb.y[2],0.6f, PositionRule.Center);
                 addTimer(new TickTimer(0.6f, false, new TickTimerListener() {
                     @Override
                     public void onStop(Timer sender) {
@@ -150,14 +149,14 @@ public class Tolvaj extends OneSpriteStaticActor {
                         item.setBodyRotation(180);
                         item.setBodyOrigin(item.getActorWidth()/2,item.getActorHeight()/2);
                         item.setBodyOrigin(item.getActorWidth()/2,item.getActorHeight()/2);
-                        item.body.moveToFixTime(RandomGomb.x[0],1280-RandomGomb.y[pozició],1.0f, PositionRule.Center);
+                        item.body.moveToFixTime(RandomGomb.x[0],fentrol-RandomGomb.y[pozició],1.0f, PositionRule.Center);
                         addTimer(new TickTimer(1f, false, new TickTimerListener() {
                             @Override
                             public void onStop(Timer sender) {
                                 super.onStop(sender);
                                 item.setBodyRotation(90);
                                 item.setBodyOrigin(item.getActorWidth()/2,item.getActorHeight()/2);
-                                item.body.moveToFixTime(RandomGomb.x[pozició],1280-RandomGomb.y[pozició],0.4f, PositionRule.Center);
+                                item.body.moveToFixTime(RandomGomb.x[pozició],fentrol-RandomGomb.y[pozició],0.4f, PositionRule.Center);
                             }
                         }));
                     }
@@ -167,48 +166,47 @@ public class Tolvaj extends OneSpriteStaticActor {
         if(this.pos == 3){
             if(pozició == 0){
                 item.setBodyRotation(-90);
-                item.body.moveToFixTime(RandomGomb.x[pozició],1280-RandomGomb.y[3],0.5f, PositionRule.Center);
+                item.body.moveToFixTime(RandomGomb.x[pozició],fentrol-RandomGomb.y[3],0.5f, PositionRule.Center);
                 addTimer(new TickTimer(0.5f, false, new TickTimerListener() {
                     @Override
                     public void onStop(Timer sender) {
                         super.onStop(sender);
                         item.setBodyRotation(180);
-                        item.body.moveToFixTime(RandomGomb.x[pozició],1280-RandomGomb.y[pozició],1.5f, PositionRule.Center);
+                        item.body.moveToFixTime(RandomGomb.x[pozició],fentrol-RandomGomb.y[pozició],1f, PositionRule.Center);
                     }
                 }));
             }
             if(pozició == 1)
             {
                 item.setBodyRotation(-90);
-                item.body.moveToFixTime(RandomGomb.x[pozició],1280-RandomGomb.y[3],0.5f, PositionRule.Center);
+                item.body.moveToFixTime(RandomGomb.x[pozició],fentrol-RandomGomb.y[3],0.5f, PositionRule.Center);
                 addTimer(new TickTimer(0.5f, false, new TickTimerListener() {
                     @Override
                     public void onStop(Timer sender) {
                         super.onStop(sender);
                         item.setBodyRotation(0);
-                        item.body.moveToFixTime(RandomGomb.x[pozició],1280-RandomGomb.y[pozició],1.5f, PositionRule.Center);
+                        item.body.moveToFixTime(RandomGomb.x[pozició],fentrol-RandomGomb.y[pozició],1.5f, PositionRule.Center);
                     }
                 }));
             }
 
 
             if(pozició == 2){
-                //NO
                 item.setBodyRotation(-90);
-                item.body.moveToFixTime(RandomGomb.x[0],1280-RandomGomb.y[3],0.6f, PositionRule.Center);
+                item.body.moveToFixTime(RandomGomb.x[0],fentrol-RandomGomb.y[3],0.6f, PositionRule.Center);
 
                 addTimer(new TickTimer(0.6f, false, new TickTimerListener() {
                     @Override
                     public void onStop(Timer sender) {
                         super.onStop(sender);
                         item.setBodyRotation(0);
-                        item.body.moveToFixTime(RandomGomb.x[0],1280-RandomGomb.y[pozició],0.8f, PositionRule.Center);
+                        item.body.moveToFixTime(RandomGomb.x[0],fentrol-RandomGomb.y[pozició],0.8f, PositionRule.Center);
                         addTimer(new TickTimer(0.8f, false, new TickTimerListener() {
                             @Override
                             public void onStop(Timer sender) {
                                 super.onStop(sender);
                                 item.setBodyRotation(-90);
-                                item.body.moveToFixTime(RandomGomb.x[pozició],1280-RandomGomb.y[pozició],0.6f, PositionRule.Center);
+                                item.body.moveToFixTime(RandomGomb.x[pozició],fentrol-RandomGomb.y[pozició],0.6f, PositionRule.Center);
                             }
                         }));
                     }
@@ -218,8 +216,33 @@ public class Tolvaj extends OneSpriteStaticActor {
         //item.body.moveToFixTime(RandomGomb.x[pozició],1280-RandomGomb.y[pozició],ido, PositionRule.Center);
         pos = pozició;
     }
+    public float Ido(final int pos){
+        float value = 0f;
+        if(this.pos == 0){
+            if(pos == 1) {return 3f;}
+            if(pos == 2) {return 2.5f;}
+            if(pos == 3) {return 3f;}
+        }
+        if(this.pos == 1){
+            if(pos == 0) {return 3f;}
+            if(pos == 2) {return 1f;}
+            if(pos == 3) {return 2f;}
+        }
+        if(this.pos == 2){
+            if(pos == 0) {return 2.5f;}
+            if(pos == 1) {return 1f;}
+            if(pos == 3) {return 2f;}
+        }
+        if(this.pos == 3){
+            if(pos == 0) {return 1.5f;}
+            if(pos == 1) {return 2f;}
+            if(pos == 2) {return 2f;}
+        }
+        //dummy
+        return 0f;
+    }
     public void Move(int pos){
-        item.body.moveToFixTime(RandomGomb.x[pos],1280-RandomGomb.y[pos],0, PositionRule.Center);
+        item.body.moveToFixTime(RandomGomb.x[pos],fentrol-RandomGomb.y[pos],0, PositionRule.Center);
         Tolvaj.pos = pos;
     }
 }

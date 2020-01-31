@@ -2,6 +2,7 @@ package com.pindurpendurok.xvegyszer.Screens.House;
 
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.badlogic.gdx.utils.viewport.Viewport;
 import com.pindurpendurok.xvegyszer.Screens.Actors.RandomGomb;
 import com.pindurpendurok.xvegyszer.Screens.Actors.Tolvaj;
 
@@ -19,8 +20,7 @@ import hu.csanyzeg.master.MyBaseClasses.Timers.Timer;
 
 public class HouseStage extends SimpleWorldStage {
     static AssetList list = new AssetList();
-    static final String[] texturak = new String[]{"test/background_move.png"};
-    static final String Background = "test/background_move.png";
+    static final String[] texturak = new String[]{"Textures/house_background.png"};
     public static AssetList assetList = new AssetList();
 
     static {
@@ -31,48 +31,53 @@ public class HouseStage extends SimpleWorldStage {
     static public Tolvaj t;
     static public int hanyadik;
     static public List<RandomGomb> g = new ArrayList<>();
-
     public HouseStage(final MyGame game){
         super(new ResponseViewport(720f),game);
-        OneSpriteStaticActor background = new OneSpriteStaticActor(game,Background);
+        RandomGomb.Arany(getViewport().getWorldWidth(),getViewport().getWorldHeight());
+
+        OneSpriteStaticActor background = new OneSpriteStaticActor(game,texturak[0]);
         background.setSize(getViewport().getWorldWidth(),getViewport().getWorldHeight());
         addActor(background);
 
         t = new Tolvaj(game,world,this);
-        t.setSize(100,100);
+        t.setSize(170,170);
         t.Move(3);
         addActor(t);
-        for (int i = 0; i < RandomGomb.x.length; i++) {
-            if(i != Tolvaj.pos)
-                Ajto(i);
-        }
+        System.out.println(RandomGomb.y[0]);
+        Ajtok();
     }
-
-    public void Ajto(final int a){
-        final RandomGomb g = new RandomGomb(game,world,this,a);
-        g.setSize(100,100);
-        g.Mozgat(RandomGomb.x[a],RandomGomb.y[a]);
-        addActor(g);
-        this.g.add(g);
-        g.addListener(new ClickListener(){
-            @Override
-            public void clicked(InputEvent event, float x, float y) {
-                super.clicked(event, x, y);
-                System.out.println(a);
-                Ajto(HouseStage.t.pos);
-                HouseStage.t.MoveTo(a);
-
-                TickTimer t = new TickTimer(2, false, new TickTimerListener() {
-
+    public void Ajtok(){
+        for (int i = 0; i < RandomGomb.x.length; i++) {
+            if(i != Tolvaj.pos){
+                final int a = i;
+                final RandomGomb g = new RandomGomb(game,world,this,a);
+                g.setSize(200,200);
+                g.Mozgat(RandomGomb.x[a],RandomGomb.y[a]);
+                addActor(g);
+                this.g.add(g);
+                g.addListener(new ClickListener(){
                     @Override
-                    public void onStop(Timer sender) {
-                        super.onStop(sender);
-                        g.remove();
+                    public void clicked(InputEvent event, float x, float y) {
+                        super.clicked(event, x, y);
+                        DelAjtok();
+                        final int b = Tolvaj.pos;
+                        HouseStage.t.MoveTo(a);
+                        addTimer(new TickTimer(HouseStage.t.Ido(b), false, new TickTimerListener() {
+                            @Override
+                            public void onStop(Timer sender) {
+                                super.onStop(sender);
+                                Ajtok();
+                            }
+                        }));
                     }
                 });
-                addTimer(t);
+                this.g.add(g);
             }
-        });
-        this.g.add(g);
+        }
+    }
+    public void DelAjtok(){
+        for (int i = 0; i < HouseStage.g.size(); i++) {
+            g.get(i).remove();
+        }
     }
 }
