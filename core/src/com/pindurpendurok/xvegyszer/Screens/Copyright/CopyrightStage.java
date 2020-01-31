@@ -2,6 +2,7 @@ package com.pindurpendurok.xvegyszer.Screens.Copyright;
 
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.pindurpendurok.xvegyszer.Screens.Menu.MenuScreen;
+import com.pindurpendurok.xvegyszer.SimpleLoadingStage;
 
 import hu.csanyzeg.master.MyBaseClasses.Assets.AssetList;
 import hu.csanyzeg.master.MyBaseClasses.Game.MyGame;
@@ -33,7 +34,7 @@ public class CopyrightStage extends MyStage {
             @Override
             public void onStop(Timer sender) {
                 super.onStop(sender);
-                game.setScreen(new MenuScreen(game));
+                game.setScreenWithPreloadAssets(MenuScreen.class, new SimpleLoadingStage(game));
             }
         }));
 

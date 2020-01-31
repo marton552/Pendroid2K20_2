@@ -165,5 +165,14 @@ public class MenuStage extends MyStage {
 
         addActor(endBtn);
 
+        addActor(new SimpleLabel(game, "Ha előszőr hallgasd\nmeg az About-ot") {
+            @Override
+            public void init() {
+                super.init();
+                setAlignment(Align.center);
+                setPosition(getViewport().getWorldWidth() / 2 - getWidth() / 2, 10);
+            }
+        });
+
     }
 }
