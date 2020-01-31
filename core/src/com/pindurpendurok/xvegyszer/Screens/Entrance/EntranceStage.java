@@ -124,8 +124,10 @@ public class EntranceStage extends MyStage {
                 public void clicked(InputEvent event, float x, float y) {
                     super.clicked(event, x, y);
 
-                    holePunch(hole.getX(), hole.getY());
-                    hole.remove();
+                    if(xray == false) {
+                        holePunch(hole.getX(), hole.getY());
+                        hole.remove();
+                    }
                 }
             });
             addActor(hole, 300+i);
