@@ -1,5 +1,7 @@
 package com.pindurpendurok.xvegyszer.Screens.Actors;
 
+import com.pindurpendurok.xvegyszer.Screens.House.HouseStage;
+
 import hu.csanyzeg.master.MyBaseClasses.Assets.AssetList;
 import hu.csanyzeg.master.MyBaseClasses.Game.MyGame;
 import hu.csanyzeg.master.MyBaseClasses.Scene2D.OneSpriteStaticActor;
@@ -14,33 +16,23 @@ import hu.csanyzeg.master.MyBaseClasses.SimpleWorld.SimpleWorldStage;
 public class RandomGomb extends OneSpriteStaticActor {
     static AssetList list = new AssetList();
     static final String[] texturak = new String[]{"Textures/Door_icon.png"};
-    static int fentrol = 1094;
-    public static final int[] x = new int[]{330,330,650,130};
-    public static final int[] y = new int[]{1180,110,340,660};
-    //lent, fent, bal,jobb
+
+
     private SimpleWorldHelper item;
-    public int pos;
     static {
         for (int i = 0; i < texturak.length ; i++) {
             list.addTexture(texturak[i]);
         }
     }
-    public RandomGomb(final MyGame game, final SimpleWorld world,SimpleWorldStage gs, int pos) {
+    public RandomGomb(final MyGame game, final SimpleWorld world,SimpleWorldStage gs) {
         super(game, texturak[0]);
-        this.pos = pos;
 
         item = new SimpleWorldHelper(world, this, ShapeType.Circle, SimpleBodyType.Sensor);
         setActorWorldHelper(item);
     }
-    public void Mozgat(int x, int y){
-        item.body.moveToFixTime(x,fentrol-y,0, PositionRule.Center);
-    }
-
-    static public void Arany(float x,float y){
-        for (int i = 0; i < RandomGomb.x.length; i++) {
-            RandomGomb.y[i]=Math.round(RandomGomb.y[i]*0.854f);
-            RandomGomb.x[i]=Math.round(RandomGomb.x[i]);
-        }
+    public void Move(int pos){
+        item.setBodyOrigin(item.getActorWidth()/2,item.getActorHeight()/2);
+        item.body.moveToFixTime(HouseStage.getX(pos),HouseStage.getY(pos),0, PositionRule.Center);
     }
 
 }

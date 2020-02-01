@@ -26,7 +26,6 @@ public class LaborStage extends SimpleWorldStage {
     }
     public LaborStage(final MyGame game){
         super(new ResponseViewport(720f),game);
-        RandomGomb.Arany(getViewport().getWorldWidth(),getViewport().getWorldHeight());
 
         final OneSpriteStaticActor background = new OneSpriteStaticActor(game,texturak[0]);
         background.setSize(getViewport().getWorldWidth(),getViewport().getWorldHeight());

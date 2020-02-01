@@ -59,7 +59,6 @@ public class MenuStage extends MyStage {
 
     public MenuStage(final MyGame game) {
         super(new ResponseViewport(720), game);
-        RandomGomb.Arany(getViewport().getWorldWidth(),getViewport().getWorldHeight());
 
         setCameraResetToLeftBottomOfScreen();
 
